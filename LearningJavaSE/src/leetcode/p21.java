@@ -1,7 +1,9 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 class TreeNode {
     int val;
@@ -20,6 +22,38 @@ class TreeNode {
         this.left = left;
         this.right = right;
     }
+
+    public static TreeNode createTree(Integer[] nums) {
+        if (nums == null || nums.length == 0) {
+            return null;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode root = new TreeNode(nums[0]);
+        queue.offer(root);
+        int i = 1;
+
+        while (!queue.isEmpty() && i < nums.length) {
+            TreeNode parent = queue.poll();
+
+            if (nums[i] != null) {
+                TreeNode left = new TreeNode(nums[i]);
+                parent.left = left;
+                queue.offer(left);
+            }
+            i++;
+
+            if (i < nums.length && nums[i] != null) {
+                TreeNode right = new TreeNode(nums[i]);
+                parent.right = right;
+                queue.offer(right);
+            }
+            i++;
+        }
+
+        return root;
+    }
+
 }
 //给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
 public class p21 {
