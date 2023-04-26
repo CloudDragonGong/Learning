@@ -53,7 +53,37 @@ class TreeNode {
 
         return root;
     }
+    public static void printLevelOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
 
+        List<List<Integer>> levels = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            List<Integer> level = new ArrayList<>();
+
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode node = queue.poll();
+                level.add(node.val);
+
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
+            }
+
+            levels.add(level);
+        }
+
+        System.out.println(levels);
+    }
 }
 //给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
 public class p21 {
