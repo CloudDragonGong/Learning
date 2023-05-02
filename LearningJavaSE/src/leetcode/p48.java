@@ -9,6 +9,10 @@ public class p48 {
     }
 }
 class Solution48 {
+    //30 / 30 个通过测试用例
+    //状态：通过
+    //执行用时: 5 ms
+    //内存消耗: 43.1 MB
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root==null){
             return null;
