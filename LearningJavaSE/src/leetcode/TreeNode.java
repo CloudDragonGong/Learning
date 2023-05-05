@@ -105,6 +105,32 @@ class TreeNode {
 
         System.out.println(levels);
     }
+
+    public static List<String> levelOrder(TreeNode root) {
+        List<String> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if (node == null) {
+                    result.add("null");
+                } else {
+                    result.add(String.valueOf(node.val));
+                    queue.offer(node.left);
+                    queue.offer(node.right);
+                }
+            }
+        }
+        System.out.println(result);
+        return result;
+    }
 }
 //给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
 public class p21 {
