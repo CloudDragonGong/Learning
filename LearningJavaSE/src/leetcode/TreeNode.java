@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-class TreeNode {
+public  class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -130,25 +130,5 @@ class TreeNode {
         }
         System.out.println(result);
         return result;
-    }
-}
-//给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
-public class p21 {
-    public static void main(String[] args) {
-
-    }
-    public static List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> preorderList = new ArrayList<>();
-        preorder(preorderList,root);
-        return preorderList;
-    }
-
-    public static void  preorder (List<Integer> preorderList , TreeNode root){
-        if(root==null){
-            return ;
-        }
-        preorderList.add(root.val);
-        preorder(preorderList,root.left);
-        preorder(preorderList,root.right);
     }
 }

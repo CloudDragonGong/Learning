@@ -1,3 +1,5 @@
 ﻿  binary_tree.cpp
-E:\repository\learning\Learning\LearningC++\LearningC++\binary_tree.cpp(41,28): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+E:\repository\learning\Learning\LearningC++\LearningC++\binary_tree.cpp(41,22): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+E:\repository\learning\Learning\LearningC++\LearningC++\binary_tree.cpp(60,28): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+E:\repository\learning\Learning\LearningC++\LearningC++\binary_tree.cpp(64,22): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   LearningC++.vcxproj -> E:\repository\learning\Learning\LearningC++\LearningC++\x64\Debug\LearningC++.exe
