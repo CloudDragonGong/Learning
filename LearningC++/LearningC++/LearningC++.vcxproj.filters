@@ -21,6 +21,9 @@
     <ClInclude Include="binary_tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="backtrack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LearningC++.rc">
@@ -32,6 +35,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="binary_tree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="backtrack.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

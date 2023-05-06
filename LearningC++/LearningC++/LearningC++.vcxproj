@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="backtrack.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="binary_tree.h" />
   </ItemGroup>
@@ -146,6 +147,7 @@
     <ResourceCompile Include="LearningC++.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="backtrack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="binary_tree.cpp" />
   </ItemGroup>

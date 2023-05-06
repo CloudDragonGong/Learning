@@ -30,3 +30,13 @@ public:
     TreeNode* trimBST(TreeNode* root, int low, int high);
     void test();
 };
+
+
+class Solution_leetcode_1038 {
+public:
+    TreeNode* bstToGst(TreeNode* root);
+    void test();
+    int  GST(TreeNode* root, int );
+ };
+
+

@@ -185,3 +185,83 @@ void Solution_leetcode_801::test() {
 	tree = trimBST(tree, 1, 3);
 	tree->printTree(tree);
 }
+
+
+TreeNode* Solution_leetcode_1038:: bstToGst(TreeNode* root) {
+	if (root == nullptr) {
+		return nullptr;
+	}
+	GST(root,0);
+	return root;
+}
+
+
+void Solution_leetcode_1038::test() {
+	/*
+	给定一个二叉搜索树 root (BST)，请将它的每个节点的值替换成树中大于或者等于该节点值的所有节点值之和。
+
+	提醒一下， 二叉搜索树 满足下列约束条件：
+
+	节点的左子树仅包含键 小于 节点键的节点。
+	节点的右子树仅包含键 大于 节点键的节点。
+	左右子树也必须是二叉搜索树。
+
+	来源：力扣（LeetCode）
+	链接：https://leetcode.cn/problems/binary-search-tree-to-greater-sum-tree
+	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。*/
+
+
+	
+	/*
+	执行结果：
+	通过
+	显示详情
+	查看示例代码
+	添加备注
+
+	执行用时：
+	0 ms
+	, 在所有 C++ 提交中击败了
+	100.00%
+	的用户
+	内存消耗：
+	7.9 MB
+	, 在所有 C++ 提交中击败了
+	77.59%
+	的用户
+	通过测试用例：
+	29 / 29
+	*/
+
+	//有的时候回溯不方便的话，额外开辟空间会好很多
+	std::vector<int>arr = { 4,1,6,0,2,5,7,-1,-1,-1,3,-1,-1,-1,8 };
+	TreeNode* tree = TreeNode::createTree(arr);
+	tree->printTree(tree);
+	std::cout << std::endl;
+	tree = bstToGst(tree);
+	tree->printTree(tree);
+}
+
+int Solution_leetcode_1038::GST(TreeNode* root,int down){
+	if (root ==nullptr) {
+		return 0;
+	}
+	//如果右节点不是空，本节点的值=下面给的（最左下的点，return）+自己结点的值（都是计算后的）
+	//右节点是空的话，本节点的值=上面给的（往上走第一个往右拐弯的结点的值，pre）+ 自己的节点（都是计算后的）
+	int up1 = GST(root->right, down);
+	//处理
+	if(root->right!=nullptr)
+		root->val += up1;
+	else {
+		root->val += down;
+	}
+	down = root->val;
+	if (root->left == nullptr) {
+		return root->val;
+	}
+	else {
+		return GST(root->left, down);
+	}
+	//这个函数的作用就是完成root的计算,并且当自己是父节点的左儿子时，返回该结点的值（都是计算后的）,当左儿子不是空时，传递pre
+	
+}
