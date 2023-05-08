@@ -3,7 +3,7 @@
 #include "backtrack.h"
 
 int main() {
-	solution_leetcode_216*solution = new solution_leetcode_216();
+	solution_leetcode_131*solution = new solution_leetcode_131();
 	solution->test();
 }
  

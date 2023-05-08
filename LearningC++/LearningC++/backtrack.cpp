@@ -2,13 +2,13 @@
 
 vector<vector<int>> solution_leetcode_216::combinationSum3(int k, int n) {
 	if (k > 10 || k <= 0) return {};
-	vector<vector<int>>  *array = new vector<vector<int>> ;
-	stack<int> * Stack = new stack<int>;
+	vector<vector<int>>* array = new vector<vector<int>>;
+	stack<int>* Stack = new stack<int>;
 	dfs(k, n, 1, Stack, array);
 	return *array;
 }
 
-void solution_leetcode_216:: dfs(int k, int n,int begin, stack<int> *Stack, vector<vector<int>> *array) {
+void solution_leetcode_216::dfs(int k, int n, int begin, stack<int>* Stack, vector<vector<int>>* array) {
 	if (Stack->size() == k) {
 		int num = 0;
 		stack<int> copy = *Stack;
@@ -73,4 +73,129 @@ void solution_leetcode_216::test() {
 	18 / 18*/
 	vector<vector<int>> arrays = combinationSum3(4, 1);
 	printVector(arrays);
+}
+vector<vector<string>> solution_leetcode_131::partition(string s) {
+	vector<vector<string>>* arrays = new vector<vector<string>>;
+	stack<string>* Stack = new stack<string>;
+	BT2(s, 0, arrays, Stack);
+	return *arrays;
+}
+void solution_leetcode_131::BT2(string s, int begin, vector<vector<string>>* arrays, stack<string>* Stack) {
+
+	for (int i = begin; i < s.length(); i++) {
+		if (judgment_palindrome_string(s.substr(begin, i - begin + 1))) {
+			if (i == s.length() - 1) {
+				stack<string>Stack_copy = *Stack;
+				stack<string>Stack_use;
+				vector<string> array;
+				while (!Stack_copy.empty()) {
+					Stack_use.push(Stack_copy.top());
+					Stack_copy.pop();
+				}
+				while (!Stack_use.empty()) {
+					array.push_back(Stack_use.top());
+					Stack_use.pop();
+				}
+				array.push_back(s.substr(begin, i - begin + 1));
+				arrays->push_back(array);
+				return;
+			}
+			Stack->push(s.substr(begin, i - begin + 1));
+			BT(s, i + 1, arrays, Stack);
+			Stack->pop();
+		}
+	}
+}
+void solution_leetcode_131::BT(string s, int begin, vector<vector<string>>* arrays, stack<string>* Stack) {
+	if (judgment_palindrome_stack(*Stack)) {
+		for (int i = begin; i < s.length(); i++) {
+			if (judgment_palindrome_string(s.substr(begin, i - begin + 1))) {
+				if (i == s.length() - 1) {
+					stack<string>Stack_copy = *Stack;
+					stack<string>Stack_use;
+					vector<string> array;
+					while (!Stack_copy.empty()) {
+						Stack_use.push(Stack_copy.top());
+						Stack_copy.pop();
+					}
+					while (!Stack_use.empty()) {
+						array.push_back(Stack_use.top());
+						Stack_use.pop();
+					}
+					array.push_back(s.substr(begin, i - begin + 1));
+					arrays->push_back(array);
+					return;
+				}
+				Stack->push(s.substr(begin, i - begin + 1));
+				BT(s, i + 1, arrays, Stack);
+				Stack->pop();
+			}
+		}
+	}
+	else {
+		return;
+	}
+}
+bool solution_leetcode_131::judgment_palindrome_stack(stack<string> Stack) {
+	for (int i = 0; i < Stack.size(); i++) {
+		if (judgment_palindrome_string(Stack.top())) {
+			Stack.pop();
+		}
+		else {
+			return false;
+		}
+	}
+	return true;
+}
+
+bool solution_leetcode_131::judgment_palindrome_string(string s) {
+	if (s.length() == 1) {
+		return true;
+	}
+	else if (s.length() == 0) {
+		return false;
+	}
+	stack<char> Stack;
+	for (int i = 0; i < s.length(); i++) {
+		Stack.push(s[i]);
+	}
+	for (int i = 0; i < s.length(); i++) {
+		if (Stack.top() == s[i]) {
+			Stack.pop();
+		}
+		else {
+			return false;
+		}
+	}
+	return true;
+}
+
+void solution_leetcode_131::test() {
+	/*
+	* 给你一个字符串 s，请你将 s 分割成一些子串，使每个子串都是 回文串 。返回 s 所有可能的分割方案。
+
+	回文串 是正着读和反着读都一样的字符串。
+	*/
+	/*
+	执行用时：
+	404 ms
+	, 在所有 C++ 提交中击败了
+	5.31%
+	的用户
+	内存消耗：
+	302 MB
+	, 在所有 C++ 提交中击败了
+	5.00%
+	的用户
+	通过测试用例：
+	32 / 32
+	*/
+	string s = "";
+	vector<vector<string>> arrays = partition(s);
+	for (const auto& innerVec : arrays) {
+		for (const auto& str : innerVec) {
+			std::cout << str << " ";
+		}
+		std::cout << std::endl;
+	}
 }
