@@ -38,5 +38,3 @@ public:
     void test();
     int  GST(TreeNode* root, int );
  };
-
-

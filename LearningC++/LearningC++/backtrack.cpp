@@ -1,5 +1,5 @@
 ﻿#include "backtrack.h"
-
+#include "Tool.h"
 vector<vector<int>> solution_leetcode_216::combinationSum3(int k, int n) {
 	if (k > 10 || k <= 0) return {};
 	vector<vector<int>>* array = new vector<vector<int>>;
@@ -198,4 +198,72 @@ void solution_leetcode_131::test() {
 		}
 		std::cout << std::endl;
 	}
+}
+
+
+vector<vector<int>> Solution_leetcode_491:: findSubsequences(vector<int>& nums) {
+	/*给你一个整数数组 nums ，找出并返回所有该数组中不同的递增子序列，递增子序列中 至少有两个元素 。你可以按 任意顺序 返回答案。
+
+	数组中可能含有重复元素，如出现两个整数相等，也可以视作递增序列的一种特殊情况。
+
+ 
+
+	示例 1：
+
+	来源：力扣（LeetCode）
+	链接：https://leetcode.cn/problems/non-decreasing-subsequences
+	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+	*/
+	/*
+	行用时：
+	132 ms
+	, 在所有 C++ 提交中击败了
+	5.16%
+	的用户
+	内存消耗：
+	103.4 MB
+	, 在所有 C++ 提交中击败了
+	5.02%
+	的用户
+	通过测试用例：
+	58 / 58*/
+	vector<vector<int>> arrays;
+	vector<int>array;
+	BT(nums, 0, arrays, array,INT_MIN);
+	return arrays;
+}
+
+
+void Solution_leetcode_491:: BT(vector<int> nums, int cur, vector<vector<int>> &arrays, vector<int> &array,int last) {
+	if (cur == nums.size()) {
+		if(array.size()>1)
+		arrays.push_back(array);
+		return;
+	}
+	//至少两个元素
+	//重复的不行
+	if (array.empty()||last<=nums[cur]) {
+		array.push_back(nums[cur]);
+		BT(nums, cur + 1, arrays, array,nums[cur]);
+		array.pop_back();
+	}
+	//意思就是如果有重复的元素，让最后一个匹配，比如4 6 7 6 6 6 9 10 ，可能会生成 4 6 9 的重复，为了避免
+	//只让最后一个6生成 4 6 9 让后面的递归阻塞，如果前面添加的元素有6的话，不让你进行下面的递归
+	//就比如 4 6 9(6为第一个6) 应该经过4 6 _  _  _ _ 9 ,这个算法就删除这个情况，在第二个_这里就不让你递归，直接切掉这个路
+	if(array.size()==0||last != nums[cur])
+		BT(nums, cur + 1, arrays, array,last);
+ }
+
+
+void Solution_leetcode_491::test() {
+	vector<int> nums = { 4,6,7,7 };
+	vector<vector<int>> arrays = findSubsequences(nums);
+	PrintVecofVec1(arrays);
+}
+
+
+void Solution_leetcode_46:: test() {
+	vector<int> nums = { 0,1 ,2,3,4,5,6 };
+	vector<vector<int>> arrays = permute(nums);
+	PrintVecofVec1(arrays);
 }

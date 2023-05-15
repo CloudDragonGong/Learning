@@ -1,9 +1,8 @@
 #include <iostream>
 #include "binary_tree.h"
 #include "backtrack.h"
+#include "Tool.h"
 
 int main() {
-	solution_leetcode_131*solution = new solution_leetcode_131();
-	solution->test();
 }
  

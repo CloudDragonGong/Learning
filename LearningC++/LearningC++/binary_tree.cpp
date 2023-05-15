@@ -2,6 +2,7 @@
 #include <vector>
 #include <queue>
 #include "binary_tree.h"
+#include "Tool.h"
 //Definition for a binary tree node.
 
 TreeNode* TreeNode::buildTree(std::vector<int>& arr) {

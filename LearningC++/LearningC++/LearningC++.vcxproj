@@ -142,6 +142,7 @@
     <ClInclude Include="backtrack.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="binary_tree.h" />
+    <ClInclude Include="Tool.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LearningC++.rc" />
@@ -150,6 +151,7 @@
     <ClCompile Include="backtrack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="binary_tree.cpp" />
+    <ClCompile Include="Tool.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
