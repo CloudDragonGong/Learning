@@ -7,6 +7,6 @@ public class p8 {
         
     }
     public static List<String> findItinerary(List<List<String>> tickets) {
-
+        return null;
     }
 }

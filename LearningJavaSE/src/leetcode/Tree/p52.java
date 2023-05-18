@@ -1,6 +1,5 @@
 package leetcode.Tree;
 
-import netscape.security.UserTarget;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

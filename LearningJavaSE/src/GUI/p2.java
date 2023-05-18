@@ -1,6 +1,5 @@
 package GUI;
 
-import com.sun.deploy.ui.AboutDialog;
 
 import javax.swing.*;
 
