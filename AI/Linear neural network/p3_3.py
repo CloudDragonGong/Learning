@@ -2,7 +2,7 @@ import random
 import torch
 from torch.utils import data
 from d2l import torch as d2l
-from torch import nn;
+from torch import nn
 def synthetic_date (w, b , num_examples):
     X = torch.normal(0,1,(num_examples,len(w)))
     y = torch.matmul(X,w)+b

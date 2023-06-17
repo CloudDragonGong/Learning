@@ -13,7 +13,7 @@ mnist_train = torchvision.datasets.FashionMNIST(
 mnist_test = torchvision.datasets.FashionMNIST(
     root="../data",train = False,transform = trans,download=False
 )
-print(to)
+
 def get_fashion_mnist_labels(labels):
     text_labels = [
         't-shirt', 'trouser', 'pullover', 'dress', 'coat',
