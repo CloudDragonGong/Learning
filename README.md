@@ -1,6 +1,12 @@
 # Learning
 
-java
-
-c++
+- java
+- c++
+- python 
+- js
+- AI
+- LLM
+- linux
+- web
+- mysql
 
