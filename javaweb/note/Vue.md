@@ -10,7 +10,7 @@
 
 ![image-20230711002133880](Vue/image-20230711002133880.png)
 
-~~~
+~~~html
 <!DOCTYPE html>
 <html lang='en'>
     <head>
@@ -47,7 +47,7 @@
 
 ![image-20230711002442108](Vue/image-20230711002442108.png)
 
-~~~
+~~~html
 <!DOCTYPE html>
 <html lang='en'>
     <head>
@@ -82,7 +82,7 @@
 
 ![image-20230711010003803](Vue/image-20230711010003803.png)
 
-~~~
+~~~html
 <!DOCTYPE html>
 <html lang='en'>
     <head>
@@ -119,7 +119,7 @@
 
 ![image-20230711013956933](Vue/image-20230711013956933.png)
 
-~~~
+~~~html
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -173,7 +173,7 @@
 
 ![image-20230711015619646](Vue/image-20230711015619646.png)
 
-~~~
+~~~html
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -222,7 +222,7 @@
 
 ### 代码
 
-~~~
+~~~html
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -295,7 +295,7 @@
 
 - 掌握mounted就行
 
-~~~
+~~~html
 <!DOCTYPE html>
 <html lang='en'>
 
